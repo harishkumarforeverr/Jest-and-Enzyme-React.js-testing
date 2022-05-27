@@ -1,0 +1,77 @@
+      
+      
+      JSZ Code(js file SignupPage.js)
+      <img
+            className="sigupPageLogo"
+            onClick={(e) => {
+              e.preventDefault();
+              history.push("/"); 
+            }} 
+
+            src={"https:://dummyurl.jpg"}
+            style={{ cursor: "pointer" }}
+          />
+          
+          
+          
+          
+test file (SignupPage.test.js)
+const { default: SignupPage } = require("./SignupPage");
+
+var enzyme = require("enzyme");
+
+const mockHistoryPush = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
+
+
+describe("App", () => {
+  let app;
+  let formdata = {};
+  beforeEach(() => {
+    app = enzyme.mount(
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <I18nextProvider i18n={i18n}>
+            <SignupPage
+              formdata={formdata}
+              setformdata={(e) => {
+                formdata = {
+                  ...formdata,
+                  ...e,
+                };
+              }}
+              count={1}
+              setcount={() => {}}
+            />{" "}
+          </I18nextProvider>
+        </PersistGate>
+      </Provider>
+    );
+  });
+  
+  
+  
+    it(" check whether on homeLogo is load or not and check whether the on clicking the homelogo user is redirect to the homePage or not", () => {
+    const mEvent = {
+      preventDefault: jest.fn(),
+    };
+    expect(app.exists(".sigupPageLogo")).toEqual(true);
+
+    app.find(".sigupPageLogo").at(1).simulate("click", mEvent);
+    expect(mEvent.preventDefault).toBeCalledTimes(1);
+    expect(mockHistoryPush).toHaveBeenLastCalledWith("/");
+  });
+
+  
+  
+  
+  
+  
+  
+  
+});
