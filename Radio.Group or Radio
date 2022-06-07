@@ -1,0 +1,64 @@
+   <Radio.Group onChange={handleRadioChange} value={radioValue}>
+            <Radio className="radioGroupBooking_Pending" value="Pending">
+              {t("Pending")}
+            </Radio>
+            <Radio className="radioGroupBooking_Ongoing" value="Ongoing">
+              {t("Ongoing")}
+            </Radio>
+            <Radio className="radioGroupBooking_Upcoming" value="Upcoming">
+              {t("Upcoming")}
+            </Radio>
+            <Radio className="radioGroupBooking_Completed" value="Completed">
+              {t("Completed")}
+            </Radio>
+            <Radio className="radioGroupBooking_Cancelled" value="Cancelled">
+              {t("Cancelled")}
+            </Radio>
+          </Radio.Group>
+          
+          
+          
+          
+            it("AdultDayCareTab 2 checking whethere the radio btn invoked or niot on click", () => {
+    expect(wrapper.exists(".DashboardBookings-Tabs-Body-ListDetails")).toEqual(
+      false
+    );
+    wrapper.find(".radioGroupBooking_Pending").first().simulate("click");
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Pending").first().props().value
+    ).toBe("Pending");
+
+    wrapper.find(".radioGroupBooking_Ongoing").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Ongoing").first().props().value
+    ).toBe("Ongoing");
+
+    wrapper.find(".radioGroupBooking_Upcoming").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Upcoming").first().props().value
+    ).toBe("Upcoming");
+
+    wrapper.find(".radioGroupBooking_Completed").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Completed").first().props().value
+    ).toBe("Completed");
+
+    wrapper.find(".radioGroupBooking_Cancelled").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Cancelled").first().props().value
+    ).toBe("Cancelled");
+  });
