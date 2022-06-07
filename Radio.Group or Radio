@@ -17,9 +17,7 @@
           </Radio.Group>
           
           
-          
-          
-            it("AdultDayCareTab 2 checking whethere the radio btn invoked or niot on click", () => {
+       it("AdultDayCareTab 2 checking whethere the radio btn invoked or niot on click", () => {
     expect(wrapper.exists(".DashboardBookings-Tabs-Body-ListDetails")).toEqual(
       false
     );
@@ -34,6 +32,34 @@
 
     wrapper.update();
 
+    expect(
+      wrapper.find(".radioGroupBooking_Ongoing").first().props().value
+    ).toBe("Ongoing");
+
+    wrapper.find(".radioGroupBooking_Upcoming").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Upcoming").first().props().value
+    ).toBe("Upcoming");
+
+    wrapper.find(".radioGroupBooking_Completed").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Completed").first().props().value
+    ).toBe("Completed");
+
+    wrapper.find(".radioGroupBooking_Cancelled").first().simulate("click");
+
+    wrapper.update();
+
+    expect(
+      wrapper.find(".radioGroupBooking_Cancelled").first().props().value
+    ).toBe("Cancelled");
+  });
     expect(
       wrapper.find(".radioGroupBooking_Ongoing").first().props().value
     ).toBe("Ongoing");
