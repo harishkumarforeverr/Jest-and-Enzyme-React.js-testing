@@ -1,0 +1,73 @@
+      <Checkbox.Group
+        name="sigupformDeailesCheckbox"
+        style={{ width: "100%" }}
+        onChange={onSelectModule}
+        value={module}
+      >
+        <Checkbox value="Tele Health">{t("Tele Health")}</Checkbox>
+        <Checkbox value="Home Visit">{t("Home Visit")}</Checkbox>
+        <Checkbox value="Clinical Visit">{t("Clinical Visit")}</Checkbox>
+        <Checkbox value="Adult Day Care">{t("Adult Day Care")}</Checkbox>
+        <Checkbox value="Assisted Living">{t("Assisted living")}</Checkbox>
+        <Checkbox value="Board & Care">{t("Board & Care")}</Checkbox>
+      </Checkbox.Group>
+      
+      
+      
+        it("SignupFormDetails 2", () => {
+    expect(wrapper.exists(".FormPage-Question-Two-Name")).toEqual(true);
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .first()
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").first().props()
+        .value
+    ).toBe("Tele Health");
+
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .at(1)
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").at(1).props().value
+    ).toBe("Home Visit");
+
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .at(2)
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").at(2).props().value
+    ).toBe("Clinical Visit");
+
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .at(3)
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").at(3).props().value
+    ).toBe("Adult Day Care");
+
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .at(4)
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").at(4).props().value
+    ).toBe("Assisted Living");
+
+    wrapper
+      .find("input[name='sigupformDeailesCheckbox']")
+      .at(5)
+      .simulate("change");
+    wrapper.update();
+    expect(
+      wrapper.find("input[name='sigupformDeailesCheckbox']").at(5).props().value
+    ).toBe("Board & Care");
+  });
